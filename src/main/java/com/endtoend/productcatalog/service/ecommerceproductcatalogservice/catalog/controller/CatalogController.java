@@ -45,7 +45,6 @@ public class CatalogController {
     @PostMapping("/items")
     public ResponseEntity<List<CatalogDataResponse>> items(@RequestBody CatalogDataRequest catalogDataRequest) throws InterruptedException {
 
-            Thread.sleep(2000);
             return new ResponseEntity<>(itemService.getItemsByCategory(catalogDataRequest), HttpStatus.OK);
     }
 
@@ -65,6 +64,7 @@ public class CatalogController {
             listOfCats.add(Catalog.builder().id(UUID.randomUUID().toString())
                     .category("smart phones")
                     .image(imagePicker.pickRandomFile("/Users/rakesh/Documents/my-github-repositories/remote-rakesh-yedlapalli-git-workspace/spring-projects/e-commeerce-application-development/e-commerce-product-catalog-service/src/main/resources/static"))
+//                    .imageByteArray(imagePicker.pickRandomFileArray("/Users/rakesh/Documents/my-github-repositories/remote-rakesh-yedlapalli-git-workspace/spring-projects/e-commeerce-application-development/e-commerce-product-catalog-service/src/main/resources/static"))
                     .name(getName())
                     .price(30003d)
                     .rating(3.4)
@@ -73,6 +73,14 @@ public class CatalogController {
 
         catalogRepository.saveAll(listOfCats);
 
+
+//             convertPojoToResponse(listOfCats);
+    }
+
+    @GetMapping("/deleteAll")
+    public void deleteAll() {
+
+        catalogRepository.deleteAll();
 
 //             convertPojoToResponse(listOfCats);
     }

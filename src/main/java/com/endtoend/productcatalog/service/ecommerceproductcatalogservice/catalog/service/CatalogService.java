@@ -21,8 +21,6 @@ import static com.endtoend.productcatalog.service.ecommerceproductcatalogservice
 
 @Service
 public class CatalogService {
-
-    public static Integer inc = 0;
     @Autowired
     private CatalogRepository catalogRepository;
 
@@ -33,11 +31,7 @@ public class CatalogService {
     ImagePicker imagePicker;
 
     public List<CatalogDataResponse> getItemsByCategory(CatalogDataRequest catalogDataRequest) {
-        ++inc;
-        System.out.println(inc);
-        if(catalogDataRequest.getOffset() == 10) {
-            return Collections.emptyList();
-        }
+
         Pageable pageable = PageRequest.of(catalogDataRequest.getOffset(), catalogDataRequest.getLimit());
         List<Catalog> catalogs = catalogRepository.findAll(pageable).toList();
         return convertPojoToResponse(catalogs);

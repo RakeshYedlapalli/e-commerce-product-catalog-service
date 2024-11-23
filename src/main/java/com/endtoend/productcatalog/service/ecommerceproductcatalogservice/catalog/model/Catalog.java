@@ -1,9 +1,6 @@
 package com.endtoend.productcatalog.service.ecommerceproductcatalogservice.catalog.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -24,4 +21,5 @@ public class Catalog {
     private double rating;
     @Column(name = "number_of_rating")
     private int numberOfRatings;
+    private byte[] imageByteArray;
 }

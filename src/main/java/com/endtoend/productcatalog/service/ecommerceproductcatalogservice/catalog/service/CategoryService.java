@@ -28,7 +28,11 @@ public class CategoryService {
        var listOfCats =   List.of(Category.builder()
                .id(UUID.randomUUID().toString())
                .name("Phones")
-               .build());
+               .build(),
+               Category.builder()
+                       .id(UUID.randomUUID().toString())
+                       .name("Batteries")
+                       .build());
 
         return convertPojoToResponse(listOfCats);
 

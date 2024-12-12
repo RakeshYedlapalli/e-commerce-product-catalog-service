@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 import static com.endtoend.productcatalog.service.ecommerceproductcatalogservice.catalog.util.PhoneNamePicker.getName;
 
@@ -63,7 +62,7 @@ public class CatalogController {
         for (int i = 0; i < 1000; i++) {
             listOfCats.add(Catalog.builder().id(UUID.randomUUID().toString())
                     .category("smart phones")
-                    .image(imagePicker.pickRandomFile("/Users/rakesh/Documents/my-github-repositories/remote-rakesh-yedlapalli-git-workspace/spring-projects/e-commeerce-application-development/e-commerce-product-catalog-service/src/main/resources/static"))
+                    .image(imagePicker.pickRandomFile())
 //                    .imageByteArray(imagePicker.pickRandomFileArray("/Users/rakesh/Documents/my-github-repositories/remote-rakesh-yedlapalli-git-workspace/spring-projects/e-commeerce-application-development/e-commerce-product-catalog-service/src/main/resources/static"))
                     .name(getName())
                     .price(30003d)
